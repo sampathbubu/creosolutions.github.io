@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creo Solutions | Premium Brand Identity & Design</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<style>
+	/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0b0b0c;
+    color: #f4f4f6;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+}
+
+nav a {
+    color: #a0a0a5;
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+nav .nav-btn {
+    border: 1px solid #f4f4f6;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    color: #f4f4f6;
+}
+
+nav .nav-btn:hover {
+    background-color: #f4f4f6;
+    color: #0b0b0c;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 4rem;
+    background: radial-gradient(circle at 80% 20%, #16161a 0%, #0b0b0c 100%);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #a0a0a5;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #f4f4f6;
+    color: #0b0b0c;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    background-color: #e1e1e5;
+}
+
+/* Portfolio Section */
+.portfolio-section {
+    padding: 6rem 4rem;
+}
+
+.portfolio-section h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    letter-spacing: -0.5px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.project-card {
+    cursor: pointer;
+}
+
+.image-placeholder {
+    background-color: #16161a;
+    height: 400px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #222226;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
+}
+
+/* When you have real images, use this inside .image-placeholder instead of span:
+   width: 100%; height: 100%; object-fit: cover; */
+
+.placeholder-text {
+    color: #4a4a4f;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-card:hover .image-placeholder {
+    border-color: #44444a;
+    transform: translateY(-4px);
+}
+
+.project-info {
+    margin-top: 1.2rem;
+}
+
+.project-info h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.project-info p {
+    color: #72727a;
+    font-size: 0.95rem;
+}
+
+/* About Section */
+.about-section {
+    padding: 8rem 4rem;
+    background-color: #111113;
+    border-top: 1px solid #1c1c1f;
+    border-bottom: 1px solid #1c1c1f;
+}
+
+.about-content {
+    max-width: 700px;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-content p {
+    font-size: 1.15rem;
+    color: #a0a0a5;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.capabilities span {
+    display: inline-block;
+    border: 1px solid #333338;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: #a0a0a5;
+}
+
+/* Footer Section */
+footer {
+    padding: 8rem 4rem 3rem 4rem;
+    text-align: center;
+}
+
+footer h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+footer p {
+    color: #a0a0a5;
+    margin-bottom: 2.5rem;
+}
+
+.email-link {
+    font-size: 1.8rem;
+    color: #f4f4f6;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid #333338;
+    padding-bottom: 0.5rem;
+    transition: border-color 0.3s ease;
+}
+
+.email-link:hover {
+    border-color: #f4f4f6;
+}
+
+.footer-bottom {
+    margin-top: 6rem;
+    border-top: 1px solid #1c1c1f;
+    padding-top: 2rem;
+    font-size: 0.85rem;
+    color: #4a4a4f;
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+    header { padding: 1.5rem; }
+    nav a { display: none; } /* Simplifies mobile nav for now */
+    .hero { padding: 0 1.5rem; }
+    .hero-content h1 { font-size: 2.4rem; }
+    .portfolio-section, .about-section, footer { padding: 4rem 1.5rem; }
+    .grid { grid-template-columns: 1fr; gap: 2rem; }
+    .image-placeholder { height: 280px; }
+    footer h2 { font-size: 1.8rem; }
+    .email-link { font-size: 1.3rem; }
+}
+	</style>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">CREO SOLUTIONS</div>
+        <nav>
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="#contact" class="nav-btn">Let's Talk</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Crafting memorable visual identities.</h1>
+            <p>Specialized in minimalist branding, geometric monograms, and precision vector design with over a decade of industry expertise.</p>
+            <a href="#work" class="cta-button">View Portfolio</a>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section id="work" class="portfolio-section">
+        <h2>Selected Work</h2>
+        <div class="grid">
+            
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="image-placeholder">
+                    <!-- Replace with your mockup image path, e.g., images/styalis.jpg -->
+                    <span class="placeholder-text">Project Mockup 1</span>
+                </div>
+                <div class="project-info">
+                    <h3>Brand Identity System</h3>
+                    <p>Minimalist Apparel Branding</p>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="image-placeholder">
+                    <span class="placeholder-text">Project Mockup 2</span>
+                </div>
+                <div class="project-info">
+                    <h3>Vector Logo & Packaging</h3>
+                    <p>Outdoor & Travel Gear Brand</p>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="image-placeholder">
+                    <span class="placeholder-text">Project Mockup 3</span>
+                </div>
+                <div class="project-info">
+                    <h3>Vintage Badge Design</h3>
+                    <p>Retro Typography & Line Art</p>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="image-placeholder">
+                    <span class="placeholder-text">Project Mockup 4</span>
+                </div>
+                <div class="project-info">
+                    <h3>Corporate Monogram</h3>
+                    <p>Negative Space Geometry</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2>The Studio</h2>
+            <p>Creo Solutions is a strategic design hub dedicated to elevating brands through functional minimalism. We believe that great design isn't just about looks—it's about clarity, structural balance, and creating an instant connection with your audience.</p>
+            <div class="capabilities">
+                <span>Logo Design</span>
+                <span>Brand Guidelines</span>
+                <span>Vector Illustration</span>
+                <span>Typography</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer id="contact">
+        <h2>Let's build something exceptional.</h2>
+        <p>Have a project in mind or looking to collaborate? Reach out today.</p>
+        <a href="mailto:your-email@example.com" class="email-link">hello@creosolutions.com</a>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Creo Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
