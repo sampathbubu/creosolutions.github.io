@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Firebase Phone Auth - Simple</title>
+    <!-- Firebase SDK Scripts (Compatibility Version) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <div id="auth-container">
+        <h2>Phone Authentication</h2>
+        <div id="send-otp-section">
+            <input type="tel" id="phoneNumber" value="+94773882672">
+            <button id="sendCodeBtn">Send OTP</button>
+        </div>
+        <div id="recaptcha-container"></div>
+        <div id="verify-otp-section" style="display:none;">
+            <input type="text" id="otpCode" placeholder="6-digit OTP">
+            <button id="verifyCodeBtn">Verify OTP</button>
+        </div>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        // Config එක
+        const firebaseConfig = {
+            apiKey: "AIzaSyBceSu1uCTikfzbhYsMbpO6fQ9TbXbU7DA",
+            authDomain: "my-fireabase-learing-project.firebaseapp.com",
+            projectId: "my-fireabase-learing-project",
+            storageBucket: "my-fireabase-learing-project.firebasestorage.app",
+            messagingSenderId: "466058568270",
+            appId: "1:466058568270:web:1d19b51e5bc0f800b1991f"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // reCAPTCHA
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+
+        let confirmationResult;
+
+        // Send OTP
+        document.getElementById('sendCodeBtn').onclick = function() {
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            auth.signInWithPhoneNumber(phoneNumber, window.recaptchaVerifier)
+                .then((result) => {
+                    confirmationResult = result;
+                    document.getElementById('send-otp-section').style.display = 'none';
+                    document.getElementById('verify-otp-section').style.display = 'block';
+                    document.getElementById('message').innerText = "OTP එක එවා ඇත!";
+                }).catch((error) => {
+                    document.getElementById('message').innerText = "Error: " + error.message;
+                });
+        };
+
+        // Verify OTP
+        document.getElementById('verifyCodeBtn').onclick = function() {
+            const code = document.getElementById('otpCode').value;
+            confirmationResult.confirm(code).then((result) => {
+                document.getElementById('message').innerText = "සාර්ථකයි! UID: " + result.user.uid;
+            }).catch((error) => {
+                document.getElementById('message').innerText = "OTP වැරදියි.";
+            });
+        };
+    </script>
+</body>
+</html>
